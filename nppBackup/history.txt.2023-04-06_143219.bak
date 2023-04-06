@@ -84,15 +84,8 @@ Download the media files and put them into your production directory
 Now copy the other files into this source code.  You should see directories of android,public and src.  Any additional directories show an error in the build process at edit.mc2.online.
 
 You will be asked about overwriting files.  This is OK because you are overwriting the icon directory.
-/index.html needs to be overwritten.
 
 
-There are some files to delete:
-
-/src/js -- I would delete the whole directory.  It may contain a capacity-welcome.js which asks 
-
-There are some files to edit:
-/src/router/index.js  -- make sure it points to all the correct route pages in  the same directory
 
 NOTES: 
 
