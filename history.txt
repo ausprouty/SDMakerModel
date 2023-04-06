@@ -1,0 +1,125 @@
+start with an just outside of the directory you want to use:
+npm init @capacitor/app
+
+You will then be asked some questions.
+
+C:\capacitor>npm init @capacitor/app
+√ What is the name of your app?
+ ... MC2 SDCard Standard
+√ What directory should be used for your app?
+ ... SDMakerModel
+? What should be the App ID for your app?
+
+    App IDs (aka Bundle ID in iOS and Application ID in Android) are unique
+    identifiers for apps. They must be in reverse domain name notation, generally
+    representing a domain name that you or your company owns.
+
+ » com.mc2.sdmaster
+ 
+ 
+Next steps:
+  - cd SDMakerModel/
+  - install dependencies (e.g. w/ npm install)
+  - npm start
+  
+  
+npm install @capacitor/core -- should be installed
+
+npm install @capacitor/cli
+npm install @awesome-cordova-plugins/core --save
+npm install @awesome-cordova-plugins/diagnostic --save
+npm install @awesome-cordova-plugins/file-path --save
+npm install @awesome-cordova-plugins/file --save
+
+/// see https://ionicframework.com/docs/native/community
+// https://ionicframework.com/docs/native/file-path
+npm install cordova.plugins.diagnostic
+npm install cordova-plugin-filepath
+npm install cordova-plugin-file
+npm install @capacitor/android
+npx cap init
+// This will ask you some questions. You should be able to accept defaults if you
+// answered correctly in the 
+
+npx cap add android
+
+// this will give you a warning
+// [warn] sync could not run--missing dist directory.
+// create /dist at the same level as /android
+
+// now modify /android/app/src/main/AndroidManifest.xml by adding the following
+// two lines to the permissions section (at the end just above the permission
+// to use the internet
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+
+
+// now add the following line in the manifest application section at the top:
+ 
+ android:requestLegacyExternalStorage="true"
+ 
+
+npm install @capacitor/filesystem
+npm install --save @capacitor-community/sqlite
+
+//Copy manually the file sql-wasm.wasm from node_modules/sql.js/dist/sql-wasm.wasm 
+//Create a public directory at the root level
+//Copy the sql-wasm.wasm into the public/assets
+
+npm install copyfiles
+
+npm install -g ionic
+
+npm WARN deprecated superagent@4.1.0: Please upgrade to v7.0.2+ of superagent.  We have fixed numerous issues with streams, form-data, attach(), filesystem errors not bubbling up (ENOENT on attach()), and all tests are now passing.  See the releases tab for more information at <https://github.com/visionmedia/superagent/releases>.
+npm WARN deprecated ionic@5.4.16: The Ionic CLI now uses ✨ @ionic/cli ✨ for its package name! 👉 https://twitter.com/ion
+ionic init
+ionic cap add android
+ionic cap run android -l --external
+
+
+
+In order to compile Java 9+ source, please set compileSdkVersion to 30 or above
+https://stackoverflow.com/questions/66449161/how-to-upgrade-an-android-project-to-java-11
+
+https://developer.android.com/studio/write/java8-support
+The Android Gradle plugin 3.0.0 and later supports all Java 7 language features and a subset of Java 8 language features that vary by platform version.
+
+In order to compile Java 9+ source, please set compileSdkVersion to 30 or above
+Affected Modules: capacitor-android, capacitor-community-sqlite, capacitor-cordova-android-plugins, capacitor-filesystem
+
+To use an Android Emulator you must use an API 24+ system image. The System WebView does not automatically update on emulators. Physical devices should work as low as API 21 as long as their System WebView is updated.
+
+
+Must compile to API 30 because capacitor is written in Java9+
+
+Dependency 'androidx.coordinatorlayout:coordinatorlayout:1.2.0' requires libraries and applications that
+      depend on it to compile against version 31 or later of the
+      Android APIs.
+
+      :app is currently compiled against android-30.
+
+      Recommended action: Update this project to use a newer compileSdkVersion
+      of at least 31, for example 33.
+
+      Note that updating a library or application's compileSdkVersion (which
+      allows newer APIs to be used) can be done separately from updating
+      targetSdkVersion (which opts the app in to new runtime behavior) and
+      minSdkVersion (which determines which devices the app can be installed
+      on).
+
+
+DEV:
+
+npm run build
+npx cap sync
+npx cap open android
+ionic cap run android  -l --external
+   wait to select emulator
+   you will see starting development server
+
+
+PRODUCTION:
+npm run build
+npx cap sync
+npx cap open android
+Build -> Build APK

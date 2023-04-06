@@ -1,0 +1,11 @@
+{
+  "appId": "com.mc2.sdmaster",
+  "appName": "MC2 SDCard Standard",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
